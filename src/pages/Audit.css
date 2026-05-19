@@ -1,0 +1,264 @@
+.audit { display: flex; flex-direction: column; gap: 20px; }
+
+/* Input card */
+.audit__input-card { padding: 20px; }
+.audit__input-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.audit__url-wrap {
+  position: relative;
+  flex: 1;
+}
+
+.audit__url-icon {
+  position: absolute;
+  left: 12px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-3);
+  pointer-events: none;
+}
+
+.audit__url-input {
+  width: 100%;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px 10px 36px;
+  font-size: 13.5px;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color var(--transition);
+  font-family: var(--font-body);
+}
+.audit__url-input:focus { border-color: var(--color-accent); }
+.audit__url-input::placeholder { color: var(--color-text-3); }
+
+.audit__input-hint {
+  font-size: 11px;
+  color: var(--color-text-3);
+  margin-top: 10px;
+}
+
+/* Loading */
+.audit__loading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+.audit__spinner {
+  width: 32px; height: 32px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.audit__loading-title { font-size: 14px; font-weight: 600; color: var(--color-text); }
+.audit__loading-sub   { font-size: 12px; color: var(--color-text-3); margin-top: 2px; }
+
+/* Error */
+.audit__error {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(255,92,92,0.06);
+  border-color: rgba(255,92,92,0.2);
+}
+.audit__error-title { font-size: 13px; font-weight: 600; color: var(--color-danger); }
+.audit__error-sub   { font-size: 12px; color: var(--color-text-3); margin-top: 2px; }
+
+/* Results */
+.audit__results { display: flex; flex-direction: column; gap: 16px; }
+
+/* Device toggle */
+.audit__device-toggle {
+  display: flex;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  width: fit-content;
+}
+
+.device-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--color-text-3);
+  transition: all var(--transition);
+}
+.device-btn:hover { color: var(--color-text); }
+.device-btn--active {
+  color: var(--color-accent);
+  background: var(--color-accent-glow);
+  font-weight: 500;
+}
+
+/* 4 score cards */
+.audit__scores {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 700px) { .audit__scores { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 380px) { .audit__scores { grid-template-columns: 1fr 1fr; } }
+
+.audit__score-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Lower: metrics + radar */
+.audit__lower {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 14px;
+}
+@media (max-width: 860px) { .audit__lower { grid-template-columns: 1fr; } }
+
+.audit__metrics-card, .audit__radar-card { padding: 20px; }
+
+.audit__section-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+/* Metric pills */
+.audit__metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.metric-pill {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-pill__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.metric-pill__label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+}
+
+.metric-pill__good {
+  font-size: 10px;
+  color: var(--color-text-3);
+}
+
+.metric-pill__value {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.metric-pill__desc {
+  font-size: 10px;
+  color: var(--color-text-3);
+  margin-top: 2px;
+}
+
+/* Opportunities */
+.audit__opportunities { display: flex; flex-direction: column; gap: 10px; }
+
+.audit__opp {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--color-surface-2);
+  border-radius: var(--radius-md);
+}
+
+.audit__opp-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.audit__opp-title { font-size: 13px; color: var(--color-text); }
+.audit__opp-value { font-size: 11px; color: var(--color-text-3); margin-top: 2px; }
+
+/* History */
+.audit__history { display: flex; flex-direction: column; gap: 12px; }
+.audit__history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.audit__history-list { display: flex; flex-direction: column; gap: 8px; }
+
+.audit__history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+}
+
+.audit__history-meta { flex: 1; min-width: 0; }
+.audit__history-url  { font-size: 13px; font-weight: 500; color: var(--color-text); }
+.audit__history-time { font-size: 11px; color: var(--color-text-3); margin-top: 2px; }
+
+.audit__history-scores {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.audit__history-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.audit__history-score-label {
+  font-size: 9px;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-3);
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .audit__history-scores { gap: 10px; }
+  .audit__history-item { flex-direction: column; align-items: flex-start; }
+}
